@@ -1,4 +1,5 @@
 using Code.Common.Destruct;
+using Code.Gameplay.Cameras.Systems;
 using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Armaments;
 using Code.Gameplay.Features.CharacterStats;
@@ -29,6 +30,7 @@ namespace Code.Gameplay
             Add(systems.Create<LootingFeature>());
             
             Add(systems.Create<MovementFeature>());
+            Add(systems.Create<CameraFollowHeroSystem>());
             Add(systems.Create<AbilityFeature>());
             Add(systems.Create<ArmamentFeature>());
             

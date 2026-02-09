@@ -31,6 +31,9 @@ namespace Code.Gameplay.Features.Loot.Systems
             foreach (GameEntity collected in _collected)
             foreach (EffectSetup effect in collected.EffectSetups)
             {
+                if (effect.EffectTypeId == EffectTypeId.Coin)
+                    continue;
+
                 _effectFactory.CreateEffect(effect, hero.Id, hero.Id);
             }
         }

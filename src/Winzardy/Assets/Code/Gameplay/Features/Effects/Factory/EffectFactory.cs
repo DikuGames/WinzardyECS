@@ -37,5 +37,6 @@ namespace Code.Gameplay.Features.Effects.Factory
                 .AddProducerId(producerId)
                 .AddTargetId(targetId);
         }
+
     }
 }

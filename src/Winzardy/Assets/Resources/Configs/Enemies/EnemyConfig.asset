@@ -18,3 +18,5 @@ MonoBehaviour:
   <Damage>k__BackingField: 5
   <Speed>k__BackingField: 2
   <AttackRadius>k__BackingField: 0.5
+  <AttackInterval>k__BackingField: 1
+  <CoinDropChance>k__BackingField: 0.5

@@ -12,6 +12,7 @@ namespace Code.Gameplay.Features.TargetCollection
             Add(systems.Create<CastForTargetsNoLimitSystem>());
             Add(systems.Create<CastForTargetsWithLimitSystem>());
             Add(systems.Create<MarkReachedSystem>());
+            Add(systems.Create<CreateEffectsOnReachedTargetSystem>());
             
             Add(systems.Create<CleanupTargetsBuffersSystem>());
         }

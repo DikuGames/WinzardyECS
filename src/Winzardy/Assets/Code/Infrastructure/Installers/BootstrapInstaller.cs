@@ -14,6 +14,7 @@ using Code.Gameplay.Features.Loot.Factory;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
+using Code.Gameplay.UI;
 using Code.Gameplay.Windows;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
@@ -30,6 +31,8 @@ namespace Code.Infrastructure.Installers
 {
   public class BootstrapInstaller : MonoInstaller, ICoroutineRunner, IInitializable
   {
+    [SerializeField] private HeroHudView _heroHudView;
+    
     public override void InstallBindings()
     {
       BindInputService();
@@ -135,6 +138,7 @@ namespace Code.Infrastructure.Installers
     private void BindUIServices()
     {
       Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+      Container.Bind<IHeroHudView>().FromInstance(_heroHudView).AsSingle();
     }
 
     private void BindUIFactories()

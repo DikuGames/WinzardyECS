@@ -1,4 +1,5 @@
 using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Effects.Systems
 {
@@ -26,7 +27,8 @@ namespace Code.Gameplay.Features.Effects.Systems
                 if (target.isDead)
                     continue;
 
-                target.ReplaceCurrentHp(target.CurrentHp - effect.EffectValue);
+                var hp = Mathf.Clamp(target.CurrentHp - effect.EffectValue, 0, target.MaxHp);
+                target.ReplaceCurrentHp(hp);
             }
         }
     }

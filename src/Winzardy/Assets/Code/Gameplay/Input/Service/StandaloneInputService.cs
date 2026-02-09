@@ -4,9 +4,16 @@ namespace Code.Gameplay.Input.Service
 {
   public class StandaloneInputService : IInputService
   {
-    public bool HasAxisInput() => GetHorizontalAxis() != 0 || GetVerticalAxis() != 0;
+    private const float DeadZone = 0.01f;
     
-    public float GetVerticalAxis() => UnityEngine.Input.GetAxis("Vertical");
-    public float GetHorizontalAxis() => UnityEngine.Input.GetAxis("Horizontal");
+    public bool HasAxisInput()
+    {
+      float horizontal = GetHorizontalAxis();
+      float vertical = GetVerticalAxis();
+      return horizontal * horizontal + vertical * vertical > DeadZone * DeadZone;
+    }
+    
+    public float GetVerticalAxis() => UnityEngine.Input.GetAxisRaw("Vertical");
+    public float GetHorizontalAxis() => UnityEngine.Input.GetAxisRaw("Horizontal");
   }
 }

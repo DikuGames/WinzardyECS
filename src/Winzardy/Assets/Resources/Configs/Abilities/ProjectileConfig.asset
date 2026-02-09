@@ -21,7 +21,7 @@ MonoBehaviour:
       Value: 25
     ProjectileSetup:
       ProjectileCount: 1
-      Speed: 5
+      Speed: 4
       Pierce: 1
-      ContactRadius: 0.3
+      ContactRadius: 0.2
       Lifetime: 5

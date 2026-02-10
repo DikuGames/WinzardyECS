@@ -8,7 +8,7 @@ namespace Code.Gameplay.Features.Movement.System
 {
     public class DirectionalDeltaMoveSystem : IExecuteSystem
     {
-        private const float CharacterBlockingRadius = 0.45f;
+        private const float CharacterBlockingRadius = 0.5f;
         private const int OverlapBufferSize = 32;
         private static readonly Collider[] OverlapBuffer = new Collider[OverlapBufferSize];
 

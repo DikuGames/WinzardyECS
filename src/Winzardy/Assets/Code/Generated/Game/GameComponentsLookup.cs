@@ -40,34 +40,35 @@ public static class GameComponentsLookup {
     public const int ProducerId = 29;
     public const int TargetId = 30;
     public const int Enemy = 31;
-    public const int EnemyTypeId = 32;
-    public const int SpawnTimer = 33;
-    public const int Hero = 34;
-    public const int CurrentHp = 35;
-    public const int Dead = 36;
-    public const int MaxHp = 37;
-    public const int ProcessingDeath = 38;
-    public const int Collected = 39;
-    public const int LootTypeId = 40;
-    public const int PickupRadius = 41;
-    public const int Pullable = 42;
-    public const int Pulling = 43;
-    public const int Direction = 44;
-    public const int MovementAvailable = 45;
-    public const int Moving = 46;
-    public const int RotationAlignedAlongDirection = 47;
-    public const int Speed = 48;
-    public const int TurnedAlongDirection = 49;
-    public const int CollectingTargetsContinuously = 50;
-    public const int CollectTargetsInterval = 51;
-    public const int CollectTargetsTimer = 52;
-    public const int LayerMask = 53;
-    public const int ProcessedTargets = 54;
-    public const int Reached = 55;
-    public const int ReadyToCollectTargets = 56;
-    public const int TargetsBuffer = 57;
+    public const int EnemyHealth = 32;
+    public const int EnemyTypeId = 33;
+    public const int SpawnTimer = 34;
+    public const int Hero = 35;
+    public const int CurrentHp = 36;
+    public const int Dead = 37;
+    public const int MaxHp = 38;
+    public const int ProcessingDeath = 39;
+    public const int Collected = 40;
+    public const int LootTypeId = 41;
+    public const int PickupRadius = 42;
+    public const int Pullable = 43;
+    public const int Pulling = 44;
+    public const int Direction = 45;
+    public const int MovementAvailable = 46;
+    public const int Moving = 47;
+    public const int RotationAlignedAlongDirection = 48;
+    public const int Speed = 49;
+    public const int TurnedAlongDirection = 50;
+    public const int CollectingTargetsContinuously = 51;
+    public const int CollectTargetsInterval = 52;
+    public const int CollectTargetsTimer = 53;
+    public const int LayerMask = 54;
+    public const int ProcessedTargets = 55;
+    public const int Reached = 56;
+    public const int ReadyToCollectTargets = 57;
+    public const int TargetsBuffer = 58;
 
-    public const int TotalComponents = 58;
+    public const int TotalComponents = 59;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -102,6 +103,7 @@ public static class GameComponentsLookup {
         "ProducerId",
         "TargetId",
         "Enemy",
+        "EnemyHealth",
         "EnemyTypeId",
         "SpawnTimer",
         "Hero",
@@ -163,6 +165,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Effects.ProducerId),
         typeof(Code.Gameplay.Features.Effects.TargetId),
         typeof(Code.Gameplay.Features.Enemies.Enemy),
+        typeof(Code.Gameplay.Features.Enemies.EnemyHealthComponent),
         typeof(Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),
         typeof(Code.Gameplay.Features.Enemies.SpawnTimer),
         typeof(Code.Gameplay.Features.Hero.Hero),

@@ -23,5 +23,5 @@ MonoBehaviour:
       ProjectileCount: 1
       Speed: 4
       Pierce: 1
-      ContactRadius: 0.2
+      ContactRadius: 0.15
       Lifetime: 5

@@ -15,6 +15,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
         private readonly IGroup<GameEntity> _abilities;
         private readonly IGroup<GameEntity> _heroes;
         private readonly IGroup<GameEntity> _enemies;
+        private readonly float _projectileCooldown;
 
         public ProjectileAbilitySystem(
             GameContext game, 
@@ -23,6 +24,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
         {
             _staticDataService = staticDataService;
             _armamentFactory = armamentFactory;
+            _projectileCooldown = _staticDataService.GetAbility(AbilityId.Projectile).Cooldown;
 
             _abilities = game.GetGroup(GameMatcher
                 .AllOf(
@@ -58,7 +60,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
                     .ReplaceDirection(DirectionToTargetXZ(hero, target))
                     .With(x => x.isMoving = true);
                 
-                ability.PutOnCooldown(_staticDataService.GetAbility(AbilityId.Projectile).Cooldown);
+                ability.PutOnCooldown(_projectileCooldown);
             }
         }
 

@@ -29,6 +29,9 @@ namespace Code.Gameplay.Features.Effects.Systems
 
                 var hp = Mathf.Clamp(target.CurrentHp - effect.EffectValue, 0, target.MaxHp);
                 target.ReplaceCurrentHp(hp);
+                
+                if (target.hasEnemyHealth)
+                    target.EnemyHealth.SetHp((int)target.CurrentHp, (int)target.MaxHp);
             }
         }
     }

@@ -54,21 +54,22 @@ public static class GameComponentsLookup {
     public const int Pullable = 43;
     public const int Pulling = 44;
     public const int Direction = 45;
-    public const int MovementAvailable = 46;
-    public const int Moving = 47;
-    public const int RotationAlignedAlongDirection = 48;
-    public const int Speed = 49;
-    public const int TurnedAlongDirection = 50;
-    public const int CollectingTargetsContinuously = 51;
-    public const int CollectTargetsInterval = 52;
-    public const int CollectTargetsTimer = 53;
-    public const int LayerMask = 54;
-    public const int ProcessedTargets = 55;
-    public const int Reached = 56;
-    public const int ReadyToCollectTargets = 57;
-    public const int TargetsBuffer = 58;
+    public const int MoveBlockerRadius = 46;
+    public const int MovementAvailable = 47;
+    public const int Moving = 48;
+    public const int RotationAlignedAlongDirection = 49;
+    public const int Speed = 50;
+    public const int TurnedAlongDirection = 51;
+    public const int CollectingTargetsContinuously = 52;
+    public const int CollectTargetsInterval = 53;
+    public const int CollectTargetsTimer = 54;
+    public const int LayerMask = 55;
+    public const int ProcessedTargets = 56;
+    public const int Reached = 57;
+    public const int ReadyToCollectTargets = 58;
+    public const int TargetsBuffer = 59;
 
-    public const int TotalComponents = 59;
+    public const int TotalComponents = 60;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -117,6 +118,7 @@ public static class GameComponentsLookup {
         "Pullable",
         "Pulling",
         "Direction",
+        "MoveBlockerRadius",
         "MovementAvailable",
         "Moving",
         "RotationAlignedAlongDirection",
@@ -179,6 +181,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Loot.Pullable),
         typeof(Code.Gameplay.Features.Loot.Pulling),
         typeof(Code.Gameplay.Features.Movement.Direction),
+        typeof(Code.Gameplay.Features.Movement.MoveBlockerRadius),
         typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.Moving),
         typeof(Code.Gameplay.Features.Movement.RotationAlignedAlongDirection),

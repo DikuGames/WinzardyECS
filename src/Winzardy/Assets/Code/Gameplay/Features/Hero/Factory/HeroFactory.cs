@@ -41,6 +41,7 @@ namespace Code.Gameplay.Features.Hero.Factory
                 .AddBaseStats(baseStats)
                 .AddStatModifiers(InitStats.EmptyStatDictionary())
                 .AddSpeed(baseStats[Stats.Speed])
+                .AddMoveBlockerRadius(_config.MoveBlockerRadius)
                 .AddCurrentHp(baseStats[Stats.MaxHp])
                 .AddMaxHp(baseStats[Stats.MaxHp])
                 .AddViewPrefab(_config.ViewPrefab)

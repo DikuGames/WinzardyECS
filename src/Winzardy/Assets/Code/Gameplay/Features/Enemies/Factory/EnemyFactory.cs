@@ -43,6 +43,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .AddBaseStats(baseStats)
                     .AddStatModifiers(InitStats.EmptyStatDictionary())
                     .AddSpeed(baseStats[Stats.Speed])
+                    .AddMoveBlockerRadius(config.MoveBlockerRadius)
                     .AddCurrentHp(baseStats[Stats.MaxHp])
                     .AddMaxHp(baseStats[Stats.MaxHp])
                     .AddEffectSetups(new List<EffectSetup> {new(){EffectTypeId = EffectTypeId.Damage, Value = baseStats[Stats.Damage]}})

@@ -8,7 +8,6 @@ namespace Code.Gameplay.Features.Movement.System
 {
     public class DirectionalDeltaMoveSystem : IExecuteSystem
     {
-        private const float CharacterBlockingRadius = 0.5f;
         private const int OverlapBufferSize = 32;
         private static readonly Collider[] OverlapBuffer = new Collider[OverlapBufferSize];
 
@@ -38,7 +37,7 @@ namespace Code.Gameplay.Features.Movement.System
                 Vector3 delta = new Vector3(mover.Direction.x, 0f, mover.Direction.y) * mover.Speed * _time.DeltaTime;
                 Vector3 nextPosition = mover.WorldPosition + delta;
 
-                if ((mover.isEnemy || mover.isHero) && IsBlockedByCharacter(mover, nextPosition))
+                if (mover.hasMoveBlockerRadius && IsBlockedByCharacter(mover, nextPosition))
                     continue;
 
                 mover.ReplaceWorldPosition(nextPosition);
@@ -49,7 +48,7 @@ namespace Code.Gameplay.Features.Movement.System
         {
             int hitCount = Physics.OverlapSphereNonAlloc(
                 nextPosition,
-                CharacterBlockingRadius,
+                mover.MoveBlockerRadius,
                 OverlapBuffer,
                 _blockingLayerMask,
                 QueryTriggerInteraction.Ignore);
@@ -64,14 +63,16 @@ namespace Code.Gameplay.Features.Movement.System
                 if (hitEntity == null || hitEntity == mover)
                     continue;
 
-                if (hitEntity.isHero || hitEntity.isEnemy)
-                {
-                    float currentSqrDistance = (hitEntity.WorldPosition - mover.WorldPosition).sqrMagnitude;
-                    float nextSqrDistance = (hitEntity.WorldPosition - nextPosition).sqrMagnitude;
+                if (!hitEntity.hasMoveBlockerRadius)
+                    continue;
 
-                    if (nextSqrDistance < currentSqrDistance)
-                        return true;
-                }
+                float blockerDistance = mover.MoveBlockerRadius + hitEntity.MoveBlockerRadius;
+                float blockerDistanceSqr = blockerDistance * blockerDistance;
+                float currentSqrDistance = (hitEntity.WorldPosition - mover.WorldPosition).sqrMagnitude;
+                float nextSqrDistance = (hitEntity.WorldPosition - nextPosition).sqrMagnitude;
+
+                if (nextSqrDistance <= blockerDistanceSqr && nextSqrDistance < currentSqrDistance)
+                    return true;
             }
 
             return false;

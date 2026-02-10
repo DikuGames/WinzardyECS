@@ -9,6 +9,7 @@ namespace Code.Gameplay.Features.Hero.Configs
         [field: SerializeField] public EntityBehaviour ViewPrefab { get; private set; }
         [field: SerializeField] public float MaxHp { get; private set; } = 100f;
         [field: SerializeField] public float Speed { get; private set; } = 2f;
+        [field: SerializeField] public float MoveBlockerRadius { get; private set; } = 0.5f;
         [field: SerializeField] public float PickupRadius { get; private set; } = 1f;
     }
 }

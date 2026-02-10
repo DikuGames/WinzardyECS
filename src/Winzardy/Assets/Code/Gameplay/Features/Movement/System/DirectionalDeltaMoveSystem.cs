@@ -38,7 +38,7 @@ namespace Code.Gameplay.Features.Movement.System
                 Vector3 delta = new Vector3(mover.Direction.x, 0f, mover.Direction.y) * mover.Speed * _time.DeltaTime;
                 Vector3 nextPosition = mover.WorldPosition + delta;
 
-                if (mover.isEnemy && IsBlockedByCharacter(mover, nextPosition))
+                if ((mover.isEnemy || mover.isHero) && IsBlockedByCharacter(mover, nextPosition))
                     continue;
 
                 mover.ReplaceWorldPosition(nextPosition);
@@ -65,7 +65,13 @@ namespace Code.Gameplay.Features.Movement.System
                     continue;
 
                 if (hitEntity.isHero || hitEntity.isEnemy)
-                    return true;
+                {
+                    float currentSqrDistance = (hitEntity.WorldPosition - mover.WorldPosition).sqrMagnitude;
+                    float nextSqrDistance = (hitEntity.WorldPosition - nextPosition).sqrMagnitude;
+
+                    if (nextSqrDistance < currentSqrDistance)
+                        return true;
+                }
             }
 
             return false;
